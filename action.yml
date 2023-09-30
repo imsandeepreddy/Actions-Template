@@ -1,8 +1,13 @@
 name: "Action template entry"
 description: "Action template entry"  
 
-runs:
-  using: "composite"
-  steps:
-      - name: Build
-        uses: imsandeepreddy/Actions-Template/build@main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+  runs:
+    using: "composite"
+    steps:
+        - uses: actions/checkout@v2
+        - name: Build
+          uses: imsandeepreddy/Actions-Template/build@main
