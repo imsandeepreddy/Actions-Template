@@ -5,4 +5,4 @@ runs:
   using: "composite"
   steps:
       - name: Build
-        uses: imsandeepreddy/Action-Template/build@main
+        uses: imsandeepreddy/Actions-Template/build@main
