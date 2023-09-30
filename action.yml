@@ -1,0 +1,8 @@
+name: "Action template entry"
+description: "Action template entry"  
+
+runs:
+  using: "composite"
+  steps:
+      - name: Build
+        uses: Action-Template/build@main
