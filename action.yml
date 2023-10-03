@@ -42,6 +42,7 @@ runs:
           echo "buildTool=$buildTool" >> $GITHUB_ENV  
 
       - name: Set Build Tool
+        shell: bash
         id: set_build_tool
         run: |
           # Dynamically set the value of BUILD_TOOL based on your logic
