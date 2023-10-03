@@ -42,4 +42,4 @@ runs:
           echo "buildTool=$buildTool" >> $GITHUB_ENV    
   
       - name: Build
-        uses: imsandeepreddy/Actions-Template/build@main
+        uses: imsandeepreddy/Actions-Template/{buildTool}@main
