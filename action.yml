@@ -52,6 +52,4 @@ runs:
 
       - name: Build
         uses: imsandeepreddy/Actions-Template/${{ env.buildTool }}@main    
-  
-      - name: Build
-        uses: imsandeepreddy/Actions-Template/{buildTool}@main
+
