@@ -3,9 +3,6 @@ description: "Action template entry"
 
 runs:
   using: "composite"
-  env:
-    pipelineType: ${{ github.event.inputs.pipelineType }}
-    buildTool: ${{ github.event.inputs.buildTool  }}
   
   steps:
       - name: Checkout code
