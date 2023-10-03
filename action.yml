@@ -3,6 +3,10 @@ description: "Action template entry"
 
 runs:
   using: "composite"
+  env:
+    pipelineType: ${{ github.event.inputs.pipelineType }}
+    buildTool: ${{ github.event.inputs.buildTool  }}
+  
   steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -41,15 +45,6 @@ runs:
           echo "pipelineType=$pipelineType" >> $GITHUB_ENV
           echo "buildTool=$buildTool" >> $GITHUB_ENV  
 
-      - name: Set Build Tool
-        shell: bash
-        id: set_build_tool
-        run: |
-          # Dynamically set the value of BUILD_TOOL based on your logic
-          # For example, you can set it based on the value of buildTool from the pipelineconfig
-          buildTool="${{ steps.read_config.outputs.buildTool }}"
-          echo "buildTool=$buildTool" >> $GITHUB_ENV
-
       - name: Build
-        uses: imsandeepreddy/Actions-Template/${{ buildTool }}@main    
+        uses: imsandeepreddy/Actions-Template/${{ env.buildTool }}@main    
 
