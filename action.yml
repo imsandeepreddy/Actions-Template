@@ -1,10 +1,12 @@
 name: "Action template entry"
 description: "Action template entry"  
 
-runs:
-  using: "composite"
+jobs:
+  Build:
+    runs:
+      using: "composite"
   
-  steps:
+    steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -71,7 +73,7 @@ runs:
         run: |
             ls -ltr
             
-SonarQube Analysis:
-shell: bash
-run: |
-     echo "Sonar Analysis"
+  SonarQube Analysis:
+  shell: bash
+   run: |
+       echo "Sonar Analysis"
