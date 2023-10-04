@@ -43,6 +43,7 @@ runs:
           echo "buildTool=$buildTool" >> $GITHUB_ENV  
           
       - name: Set up JDK 11
+        shell: bash
         uses: actions/setup-java@v3
         with:
           java-version: '11'
@@ -50,6 +51,7 @@ runs:
           cache: maven
 
       - name: Build
+        shell: bash
         env:
           buildTool: ${{ steps.read_config.outputs.buildTool }}
         run: | 
