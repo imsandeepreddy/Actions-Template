@@ -41,7 +41,20 @@ runs:
           echo "concatsValue=${concatsValue}" >> GITHUB_ENV
           echo "pipelineType=$pipelineType" >> $GITHUB_ENV
           echo "buildTool=$buildTool" >> $GITHUB_ENV  
+          
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: maven
 
       - name: Build
-        uses: imsandeepreddy/Actions-Template/${{ steps.read_config.outputs.buildTool }}@main    
+        env:
+          buildTool: ${{ steps.read_config.outputs.buildTool }}
+        run: | 
+             echo "Build tool is $buildTool"
+             if ["$buildTool" == "maven"]; then
+             mvn -B package --file pom.xml
+             
 
