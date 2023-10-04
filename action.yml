@@ -55,14 +55,15 @@ runs:
         env:
           buildTool: ${{ steps.read_config.outputs.buildTool }}
         run: |
-          echo "Build tool is $buildTool"
-          if [ "$buildTool" == "maven" ]; then
-          mvn -B package --file pom.xml
-          elif [ "$buildTool" == "ant" ]; then
-          ant -f **/**/**/build.xml build
-          elif [ "$buildTool" == "gradle" ]; then
-          gradle -b **/**/**/build.gradle build
-          else
-         echo "Unsupported build tool: $buildTool"
-        exit 1  # Exit with an error code for unsupported build tools
-        fi
+             echo "Build tool is $buildTool"
+             if [ "$buildTool" == "maven" ]; then
+               mvn -B package --file pom.xml
+             elif [ "$buildTool" == "ant" ]; then
+               ant -f **/**/**/build.xml build
+             elif [ "$buildTool" == "gradle" ]; then
+               gradle -b **/**/**/build.gradle build
+             else
+               echo "Unsupported build tool: $buildTool"
+               exit 1  # Exit with an error code for unsupported build tools
+             fi
+
