@@ -69,4 +69,5 @@ runs:
       - name: Stash the artifact
         shell: bash
         run: |
-            cd **/**/
+            ls -ltr
+            
