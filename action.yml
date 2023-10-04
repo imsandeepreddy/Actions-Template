@@ -71,3 +71,7 @@ runs:
         run: |
             ls -ltr
             
+SonarQube Analysis:
+shell: bash
+runs: |
+     echo "Sonar Analysis"
