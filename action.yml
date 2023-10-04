@@ -70,4 +70,5 @@ runs:
         shell: bash
         run: |
             ls -ltr
-      
+            cd target
+            ls -ltr
