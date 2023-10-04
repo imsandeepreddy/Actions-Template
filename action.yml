@@ -43,6 +43,7 @@ runs:
           echo "buildTool=$buildTool" >> $GITHUB_ENV  
           
       - name: Set up JDK 11
+        if: ${{ steps.read_config.outputs.buildTool == 'java' }}
         uses: actions/setup-java@v3
         with:
           java-version: '11'
