@@ -50,6 +50,7 @@ runs:
           cache: maven
 
       - name: Build
+        shell: bash
         env:
           buildTool: ${{ steps.read_config.outputs.buildTool }}
         run: |
