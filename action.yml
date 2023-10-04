@@ -73,5 +73,5 @@ runs:
             
 SonarQube Analysis:
 shell: bash
-runs: |
+run: |
      echo "Sonar Analysis"
