@@ -1,14 +1,14 @@
 name: "Action template entry"
 description: "Action template entry"  
 
+inputs:
+  build-tool:
+    description: 'Specify the build tool (Maven or Gradle)'
+    required: true
+    default: 'Maven'
+    validation-pattern: '^(Maven|Gradle)$'
 runs:
   using: "composite"
-  inputs:
-    build-tool:
-      description: 'Specify the build tool (Maven or Gradle)'
-      required: true
-      default: 'Maven'
-      validation-pattern: '^(Maven|Gradle)$'
   steps:
       - name: Build
-        uses: imsandeepreddy/Actions-Template/build@main
+        uses: imsandeepreddy/Actions-Template/build@test2
