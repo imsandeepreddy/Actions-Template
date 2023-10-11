@@ -1,7 +1,14 @@
-name: Java CI with Maven
+name: Java CI with Maven or Gradle
 
 runs:
   using: "composite"
+
+  inputs:
+    build-tool:
+      description: 'Specify the build tool (Maven or Gradle)'
+      required: true
+      default: 'maven'
+      validation-pattern: '^(maven|Gradle)$'  # Only allow 'Maven' or 'Gradle' as values
 
   steps:
     - uses: actions/checkout@v3
@@ -11,6 +18,14 @@ runs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      shell: bash
-      run: mvn -B package --file pom.xml
+    - name: Build with Maven or Gradle
+      run: |
+        if [ ${{ inputs.build-tool }} == 'maven' ]; then
+          mvn -B package --file pom.xml
+        elif [ ${{ inputs.build-tool }} == 'Gradle' ]; then
+          ./gradlew build
+        else
+          echo "Invalid build tool specified. Please use 'Maven' or 'Gradle'."
+          exit 1
+        fi
+
