@@ -10,10 +10,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-      #- name: Get build tool
-      #  id: get-build-tool
-      #  run: echo "build_tool=${{inputs.build_tool}}" >> $GITHUB_OUTPUT
-      #  shell: bash
       - name: Build
         uses: imsandeepreddy/Actions-Template/build@test2
         with:
