@@ -10,7 +10,10 @@ inputs:
 runs:
   using: "composite"
   steps:
+      - name: Read pipeline config
+        id: read-pipelineconfig
+        uses: imsandeepreddy/Actions-Template/utilities@test2
       - name: Build
         uses: imsandeepreddy/Actions-Template/build@test2
         with:
-          build_tool: ${{inputs.build_tool}}
+          build_tool: ${{ steps.read-pipelineconfig.outputs.build_tool }}
