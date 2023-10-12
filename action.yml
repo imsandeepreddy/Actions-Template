@@ -4,6 +4,7 @@ description: "Action template entry"
 runs:
   using: "composite"
   steps:
+    - uses: actions/checkout@v2
     - name: Read build-tool from YAML file
       id: pipelineconfig
       run: |
