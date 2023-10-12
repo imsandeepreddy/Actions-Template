@@ -3,7 +3,6 @@ name: Read pipelineconfig file
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v2
     - name: Read build-tool from YAML file
       run: |
           build_tool=$(cat ./pipelineconfig.yml | yq e '.buildTool')
