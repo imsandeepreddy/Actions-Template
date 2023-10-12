@@ -12,7 +12,7 @@ runs:
   steps:
       - name: Get build tool
         id: get-build-tool
-        run: echo "build_tool=$(echo $build_tool)" >> $GITHUB_OUTPUT
+        run: echo "build_tool=${{inputs.build_tool}}" >> $GITHUB_OUTPUT
         shell: bash
       - name: Build
         uses: imsandeepreddy/Actions-Template/build@test2
