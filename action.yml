@@ -5,9 +5,11 @@ runs:
   using: "composite"
   steps:
       - name: Read pipeline config
-        #id: read-pipelineconfig
         uses: imsandeepreddy/Actions-Template/utilities@test2
+        outputs:
+          build_tool: ${{ steps.utilities.outputs.build_tool }}
       - name: Build
+        needs: utilities
         uses: imsandeepreddy/Actions-Template/build@test2
         with:
-          build_tool: ${{ steps.read-pipelineconfig.outputs.build_tool }}
+          build_tool: ${{ steps.utilities.outputs.build_tool }}
