@@ -4,12 +4,15 @@ description: "Action template entry"
 runs:
   using: "composite"
   steps:
-      - name: Read pipeline config
-        uses: imsandeepreddy/Actions-Template/utilities@test2
-        outputs:
-          build_tool: ${{ steps.utilities.outputs.build_tool }}
-      - name: Build
-        needs: utilities
-        uses: imsandeepreddy/Actions-Template/build@test2
-        with:
-          build_tool: ${{ steps.utilities.outputs.build_tool }}
+    - name: Read build-tool from YAML file
+      id: pipelineconfig
+      run: |
+          build_tool=$(cat ./pipelineconfig.yml | yq e '.buildTool')
+          echo "build_tool=$(echo $build_tool)" >> $GITHUB_OUTPUT
+          #echo "{build_tool}=${echo $build_tool}" >> $GITHUB_OUTPUT
+          echo $build_tool
+      shell: bash  
+    - name: Build
+      uses: imsandeepreddy/Actions-Template/build@test2
+      with:
+        build_tool: ${{ steps.pipelineconfig.outputs.build_tool }}
