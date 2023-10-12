@@ -5,7 +5,7 @@ runs:
   using: "composite"
   steps:
       - name: Read pipeline config
-        id: read-pipelineconfig
+        #id: read-pipelineconfig
         uses: imsandeepreddy/Actions-Template/utilities@test2
       - name: Build
         uses: imsandeepreddy/Actions-Template/build@test2
