@@ -2,7 +2,7 @@ name: Java CI with Maven or Gradle
 
 
 inputs:
-  build-tool:
+  build_tool:
     description: 'Specify the build tool (Maven or Gradle)'
     required: true
     default: 'maven'
@@ -20,9 +20,9 @@ runs:
     - name: Build with Maven or Gradle
       shell: bash
       run: |
-        if [ ${{ inputs.build-tool }} == 'maven' ]; then
+        if [ ${{ inputs.build_tool }} == 'maven' ]; then
           mvn -B package --file pom.xml
-        elif [ ${{ inputs.build-tool }} == 'Gradle' ]; then
+        elif [ ${{ inputs.build_tool }} == 'Gradle' ]; then
           ./gradlew build
         else
           echo "Invalid build tool specified. Please use 'Maven' or 'Gradle'."
