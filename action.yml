@@ -13,5 +13,4 @@ runs:
       - name: Build
         uses: imsandeepreddy/Actions-Template/build@test2
         with:
-          #build_tool: ${{ steps.get-build-tool.outputs.build_tool }}
           build_tool: ${{inputs.build_tool}}
