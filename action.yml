@@ -6,7 +6,7 @@ inputs:
     description: 'Specify the build tool (Maven or Gradle)'
     required: true
     default: 'Maven'
-    validation-pattern: '^(Maven|Gradle)$'
+    #validation-pattern: '^(Maven|Gradle)$'
 runs:
   using: "composite"
   steps:
