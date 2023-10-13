@@ -2,6 +2,7 @@ name: Action template entry
 
 on:
   workflow_dispatch:
+  workflow_call:
   push:
     branches: ['test3']
 
