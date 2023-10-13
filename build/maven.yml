@@ -10,7 +10,7 @@ inputs:
 on:
   workflow_dispatch:
   push:
-    branches: ['test2']
+    branches: ['test3']
 
 jobs:
   build:
