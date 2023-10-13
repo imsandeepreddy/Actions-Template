@@ -7,7 +7,7 @@ on:
     branches: ['test3']
 
 jobs:
-  Read-pipelineconfig:
+  read-pipelineconfig:
     runs-on: ubuntu-latest
 
     steps:
