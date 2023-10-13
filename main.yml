@@ -1,0 +1,14 @@
+name: Action template entry
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['test2']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build
+        uses: ./build/maven.yml@test3
