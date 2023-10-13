@@ -1,14 +1,14 @@
-name: CI
+name: Action template entry
 
 on:
   workflow_dispatch:
   push:
-    branches: ['test2']
+    branches: ['test3']
 
 jobs:
-  CI:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Build
-        uses: imsandeepreddy/Action-Template/.github/workflows/build/maven.yml@test3
+        uses: imsandeepreddy/Actions-Template/.github/workflows/build/maven.yml@test3
