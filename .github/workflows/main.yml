@@ -7,10 +7,6 @@ on:
     branches: ['test3']
 
 jobs:
-  read-piplineconfig:
-    uses: imsandeepreddy/Actions-Template/.github/workflows/read-pipelineconfig.yml@test3
+
   build:
-    needs: [ read-piplineconfig ]
-    uses: imsandeepreddy/Actions-Template/.github/workflows/maven.yml@test3
-    with:
-      build_tool: ${{ needs.read-piplineconfig.outputs.build_tool }}
+    uses: imsandeepreddy/Actions-Template/.github/workflows/build.yml@test3
