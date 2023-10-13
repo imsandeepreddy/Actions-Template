@@ -7,7 +7,10 @@ on:
     branches: ['test3']
 
 jobs:
+  read-piplineconfig:
+    uses: imsandeepreddy/Actions-Template/.github/workflows/read-pipelineconfig.yml@test3
   build:
+    needs: [ read-piplineconfig ]
     runs-on: ubuntu-latest
 
     steps:
@@ -21,9 +24,9 @@ jobs:
       - name: Build with Maven or Gradle
         shell: bash
         run: |
-          if [ ${{ steps.pipelineconfig.outputs.build_tool }} == 'maven' ]; then
+          if [ ${{ needs.read-piplineconfig.outputs.build_tool }} == 'maven' ]; then
             mvn -B package --file pom.xml
-          elif [ ${{ steps.pipelineconfig.outputs.build_tool }} == 'Gradle' ]; then
+          elif [ ${{ needs.read-piplineconfig.outputs.build_tool }} == 'Gradle' ]; then
             ./gradlew build
           else
             echo "Invalid build tool specified. Please use 'Maven' or 'Gradle'."
