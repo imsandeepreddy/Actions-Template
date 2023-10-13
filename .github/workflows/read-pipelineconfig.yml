@@ -1,0 +1,21 @@
+name: Read pipelineconfig
+
+on:
+  workflow_dispatch:
+  workflow_call:
+  push:
+    branches: ['test3']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Read build-tool from YAML file
+        id: pipelineconfig
+        run: |
+          build_tool=$(cat ./pipelineconfig.yml | yq e '.buildTool')
+          echo "build_tool=$(echo $build_tool)" >> $GITHUB_OUTPUT
+          #echo "{build_tool}=${echo $build_tool}" >> $GITHUB_OUTPUT
+          echo $build_tool
