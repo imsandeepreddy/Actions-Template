@@ -11,4 +11,4 @@ jobs:
 
     #steps:
     #  - name: Build
-        uses: imsandeepreddy/Actions-Template/.github/workflows/build/maven.yml@test3
+        uses: imsandeepreddy/Actions-Template/.github/workflows/maven.yml@test3
