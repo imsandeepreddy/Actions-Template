@@ -1,12 +1,5 @@
 name: Java CI with Maven or Gradle
 
-inputs:
-  build_tool:
-    description: 'Specify the build tool (Maven or Gradle)'
-    required: true
-    default: 'maven'
-    validation-pattern: '^(maven|Gradle)$'
-
 on:
   workflow_dispatch:
   workflow_call:
