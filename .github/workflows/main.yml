@@ -7,9 +7,7 @@ on:
     branches: ['test3']
 
 jobs:
+  read-piplineconfig:
+    uses: imsandeepreddy/Actions-Template/.github/workflows/read-pipelineconfig.yml@test3
   build:
-    #runs-on: ubuntu-latest
-
-    #steps:
-    #  - name: Build
-        uses: imsandeepreddy/Actions-Template/.github/workflows/maven.yml@test3
+    uses: imsandeepreddy/Actions-Template/.github/workflows/maven.yml@test3
