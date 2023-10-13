@@ -7,8 +7,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
 
-    steps:
-      - name: Build
+    #steps:
+    #  - name: Build
         uses: imsandeepreddy/Actions-Template/.github/workflows/build/maven.yml@test3
