@@ -1,9 +1,5 @@
 name: Build
 
-inputs:
-  build_tool:
-    description: 'Output from Template 1'
-    required: true
 
 on:
  workflow_dispatch:
@@ -27,5 +23,5 @@ jobs:
          cache: maven
      - name: Build with maven or gradle
        run: |
-        echo "build_tool: ${{ inputs.build_tool }}"
+        echo "build_tool: ${{ build_tool }}"
         mvn -B package --file pom.xml
