@@ -13,3 +13,5 @@ jobs:
   build:
     needs: [ read-piplineconfig ]
     uses: imsandeepreddy/Actions-Template/.github/workflows/build.yml@test3
+    with: 
+      build_tool: ${{ needs.read-piplineconfig.outputs.build_tool }}
