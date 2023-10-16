@@ -2,9 +2,6 @@ name: Read pipelineconfig
 
 on:
  workflow_dispatch:
- workflow_call:
- push:
-   branches: ['test3']
 
 jobs:
  Read-pipelineconfig:

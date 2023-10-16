@@ -3,12 +3,6 @@ name: Build
 
 on:
  workflow_dispatch:
- workflow_call:
- push:
-   branches: ['test3']
-
-
-  
 
 jobs:
  Build:
@@ -23,5 +17,4 @@ jobs:
          cache: maven
      - name: Build with maven or gradle
        run: |
-        echo "build_tool: ${{ build_tool }}"
         mvn -B package --file pom.xml
