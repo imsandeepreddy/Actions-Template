@@ -9,8 +9,6 @@ on:
 jobs:
  Read-pipelineconfig:
    runs-on: ubuntu-latest
-   outputs:
-      build_tool: ${{ steps.pipelineconfig.outputs.build_tool }}
    steps:
      - uses: actions/checkout@v2
      - name: Read build-tool from YAML file
