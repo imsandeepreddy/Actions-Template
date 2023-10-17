@@ -14,7 +14,7 @@ jobs:
    outputs:
      build_tool: ${{ steps.pipelineconfig.outputs.build_tool }}
    steps:
-     - uses: actions/checkout@v2
+     - uses: actions/checkout@v3
      - name: Read build-tool from YAML file
        id: pipelineconfig
        run: |
