@@ -3,10 +3,16 @@ name: Read pipelineconfig
 on:
  workflow_dispatch:
  workflow_call:
+   outputs:
+     build_tool:
+       description: "Build tool"
+       value: ${{ jobs.Read-pipelineconfig.outputs.build_tool }}
 
 jobs:
  Read-pipelineconfig:
    runs-on: ubuntu-latest
+   outputs:
+     build_tool: ${{ steps.pipelineconfig.outputs.build_tool }}
    steps:
      - uses: actions/checkout@v2
      - name: Read build-tool from YAML file
