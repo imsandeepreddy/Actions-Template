@@ -16,6 +16,4 @@ jobs:
          echo "build_tool=$(echo $build_tool)" >> $GITHUB_OUTPUT
          #echo "{build_tool}=${echo $build_tool}" >> $GITHUB_OUTPUT
          echo $build_tool
-   outputs:
-     build_tool:  ${{steps.pipelineconfig.outputs.build_tool}}
 

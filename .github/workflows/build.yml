@@ -4,6 +4,12 @@ name: Build
 on:
  workflow_dispatch:
  workflow_call:
+    inputs:
+      build_tool:
+        description: "Build tool"
+        type: string
+        default: "maven"
+        required: true
 
 jobs:
  Build:
@@ -18,4 +24,5 @@ jobs:
          cache: maven
      - name: Build with maven or gradle
        run: |
+        echo ${{ inputs.build_tool }}
         mvn -B package --file pom.xml
