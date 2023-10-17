@@ -25,4 +25,11 @@ jobs:
      - name: Build with maven or gradle
        run: |
         echo ${{ inputs.build_tool }}
-        mvn -B package --file pom.xml
+        if [ ${{ inputs.build_tool }} == 'maven' ]; then
+          mvn -B package --file pom.xml
+        elif [ ${{ inputs.build_tool }} == 'Gradle' ]; then
+          ./gradlew build
+        else
+          echo "Invalid build tool specified. Please use 'Maven' or 'Gradle'."
+          exit 1
+        fi
