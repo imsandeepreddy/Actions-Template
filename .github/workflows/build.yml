@@ -26,7 +26,7 @@ jobs:
        run: |
         echo ${{ inputs.build_tool }}
         if [ ${{ inputs.build_tool }} == 'maven' ]; then
-          mvn -B package --file pom.xml
+          ./scripts/maven-build.sh
         elif [ ${{ inputs.build_tool }} == 'Gradle' ]; then
           ./gradlew build
         else
